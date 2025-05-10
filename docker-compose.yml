@@ -1,0 +1,14 @@
+services:
+  localstack:
+    container_name: localstack
+    image: localstack/localstack:3.7
+    ports:
+      - "4566:4566"            # Single edge port for all AWS services
+      - "4510-4559:4510-4559"  # Service ports used by spawned Lambda containers
+    environment:
+      - SERVICES=sns,sqs,lambda,iam,logs,cloudwatch
+      - DEBUG=0
+      # LocalStack needs the host Docker socket to spawn Lambda runtime containers.
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"

@@ -1,0 +1,11 @@
+[project]
+name = "lambda-sqs-sns"
+version = "0.1.0"
+description = "Event-driven order processing demo: AWS Lambda + SQS + SNS on LocalStack"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "awscli>=1.45.6",
+    "awscli-local>=0.22.2",
+    "boto3>=1.43.6",
+]
